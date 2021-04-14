@@ -1,2 +1,2 @@
-## [前端笔记](http://wesi0912.github.io/blog/) （求star）
+## [Sandor](http://wesi0912.github.io/blog/)
 http://wesi0912.github.io/blog/
