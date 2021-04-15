@@ -14,8 +14,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vuepress": "1.4.0",
-    "vue-router": "3.4.5"
+    "markdown-it_webview": "^1.0.2",
+    "vue-router": "3.4.5",
+    "vuepress": "1.4.0"
   },
   "devDependencies": {}
 }
