@@ -1,7 +1,7 @@
 ---
 home: true
 title: Sandor
-# heroImage: /logo.png
+# heroImage: /box-model.png
 heroText: Sandor
 tagline: 不止于此
 actionText: 博客 →
