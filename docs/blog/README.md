@@ -6,3 +6,8 @@ sidebarDepth: 4
 ``` webview
 <h1 style="color:blue">Webview</h1>
 ```
+
+``` mermaid
+graph LR
+A --> B
+```

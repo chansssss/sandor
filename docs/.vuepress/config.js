@@ -9,12 +9,13 @@ module.exports = {
         extractHeaders: ['h2', 'h3', 'h4', 'h5'],
         extendMarkdown: md => {
             // 使用更多的 markdown-it 插件!
-            md.use(require('markdown-it_webview'))
+            md.use(require('@wesi/markdown-it-webview'))
           }
     },
     plugins: [
-        '@vuepress/back-to-top',
-        '@vuepress/nprogress'
+        '@vuepress/plugin-back-to-top',
+        '@vuepress/nprogress',
+        'vuepress-plugin-mermaidjs'
     ],
     themeConfig: {
         nav: [
