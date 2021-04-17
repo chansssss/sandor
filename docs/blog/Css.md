@@ -15,8 +15,15 @@ sidebarDepth: 4
 
 选择器优先级： !important > 行内样式 > ID选择器 > 类选择器 > 标签 > 通配符 > 继承 > 浏览器默认属性
 
+
+### 初始坐标系
+网页是平面的，一个DOM元素会有一个初始坐标系
+![avatar](http://localhost:8080/sandor/coordinate.png)     
+
+每一个DOM元素都有一个这样的初始坐标系。其中，原点位于元素的左上角，z轴指向观察者。初始坐标系的z轴并不算是三维空间，而是像z-index那样作为参照，决定网页元素的绘制顺序，绘制顺序靠后的元素将覆盖绘制顺序靠前的。
+
 ### 盒模型
-> box-sizing就是设置盒子模型的关键，content-box为标准盒子模型，border-box为IE盒子模型。
+
 html中每个元素可以看成一个盒子。一个盒子的组成为：   
 + Content box: 这个区域是用来显示内容，大小可以通过设置 width 和 height.
 + Padding box: 包围在内容区域外部的空白区域； 大小通过 padding 相关属性设置。
@@ -28,24 +35,24 @@ html中每个元素可以看成一个盒子。一个盒子的组成为：
 标准盒子模型：   
 在标准模型中，如果你给元素设置 width 和 height，实际设置的是 content box、 padding 和 border 再加上设置的宽高一起决定整个盒子的大小。
 ``` html
-<div class="qqqqq-box">
+<div class="box">
 </div>
 <style>
-.qqqqq-box {
+.box {
   width: 350px;
   height: 150px;
   margin: 25px;
   padding: 25px;
-  border: 3px solid #34495e;
-}</style>
+  border: 5px solid #34495e;
+}
+</style>
 ```
 ``` webview
-<div class="qqqqq-box">
+<div webview-u88asid class="box">
 </div>
 <style>
-.qqqqq-box {
-  width: 350px;
-  height: 150px;
+.box[webview-u88asid]{
+  width: 350px;height: 150px;
   margin: 25px;
   padding: 25px;
   border: 5px solid #34495e;
@@ -56,71 +63,342 @@ html中每个元素可以看成一个盒子。一个盒子的组成为：
 IE盒子模型：    
 而IE盒子模型恰好与标准盒子模型相反，它的盒子宽高就等于你设置的width、height。
 
+通过`box-sizing`就是设置元素盒子模型，content-box为标准盒子模型，border-box为IE盒子模型。
 
 ### 布局
+> 更多布局知识，可以参考[learnlayout](https://zh.learnlayout.com/)   
 
-#### flow
-正常布局流是指在不对页面进行任何布局控制时，浏览器默认的HTML布局方式。
-``` html
-<div>我是一个块元素，按照默认布局我将占据一行。</div>
-<span>我是一个行内元素1，按照默认布局不会导致换行。</span>
-<span>我是一个行内元素2，按照默认布局不会导致换行。</span>
-```
-``` webview
-<div>我是一个块元素，按照默认布局我将占据一行。</div>
-<span>我是一个行内元素1，按照默认布局不会导致换行。</span>
-<span>我是一个行内元素2，按照默认布局不会导致换行。</span>
-```
+默认情况下，所有元素会按照正常的文档流进行布局。如果一个元素脱离了正常的文档流，其他的block元素（inline元素在某些情况下会受影响）在定位的时候会当做没看见它，两者位置重叠都是可以的。
 
 #### display
+> 关于flex和grid将作为单独的章节来讲   
+
 常用display属性有block、inline、inline-block
-``` js
-block: 将元素变为一个块元素，块级元素独自占一行且宽度会占满父元素宽度。
-inline: 将元素变为一个行内元素，行内元素不会独占一行，相邻行内元素可以排在同一行。
-inline-block: 可以让元素具有块级元素和行内元素的特性。
-```
++ block: 将元素变为一个块元素，块级元素独自占一行且宽度会占满父元素宽度。    
++ inline: 将元素变为一个行内元素，行内元素不会独占一行，相邻行内元素可以排在同一行。    
++ inline-block: 可以让元素具有块级元素和行内元素的特性。
+
 
 #### float
->当一个元素浮动之后，它会被移出正常的文档流，然后向左或者向右平移，一直平移直到碰到了所处的容器的边框，或者碰到另外一个浮动的元素。
-
+当一个元素浮动之后，它会被移出正常的文档流，然后向左或者向右平移，一直平移直到碰到了所处的容器的边框，或者碰到另外一个浮动的元素。
++ left: 元素向左浮动。    
++ right: 元素向右浮动。    
++ none: 默认值。元素不浮动，并会显示在其在文本中出现的位置。
++ inherit: 从父元素继承 float 属性的值。
 
 ``` html
-<div class="qqqq-float"></div>
-<div style="height:30px;border:1px solid red;">Demo</div>
+<div webview-asi92jd class="container">
+<div webview-asi92jd class="box">
+<div webview-asi92jd class="box1">box1</div>
+<div webview-asi92jd class="box2">box2</div>
+</div>
+</div>
 <style>
-.qqqq-float{
-    float:left;
-    width:50px;
-    height:50px;
-    border:1px solid blue;
-}</style>
+.container[webview-asi92jd]{
+  height: 150px;
+}
+.box[webview-asi92jd]{
+  width:100%;
+  border:1px solid gray;
+}
+.box1[webview-asi92jd]{
+  width: 100px;
+  height: 100px;
+  float: left;
+  border:1px solid blue;
+}
+.box2[webview-asi92jd]{
+  width: 100px;
+  height: 100px;
+  float: right;
+  border:1px solid red;
+}
+</style>
 ```
 
 ``` webview
-<div class="qqqq-float"></div>
-<div class="qqqq-float"></div>
-
-<div style="height:60px;border:1px solid red;">Demo</div>
+<div webview-asi92jd class="container">
+<div webview-asi92jd class="box">
+<div webview-asi92jd class="box1">box1</div>
+<div webview-asi92jd class="box2">box2</div>
+</div>
+</div>
 <style>
-.qqqq-float{
-    float:left;
-    width:50px;
-    height:50px;
-    border:1px solid blue;
-}</style>
+.container[webview-asi92jd]{
+  height: 150px;
+}
+.box[webview-asi92jd]{
+  width:100%;
+  border:1px solid gray;
+}
+.box1[webview-asi92jd]{
+  width: 100px;
+  height: 100px;
+  float: left;
+  border:1px solid blue;
+}
+.box2[webview-asi92jd]{
+  width: 100px;
+  height: 100px;
+  float: right;
+  border:1px solid red;
+}
+</style>
 ```
-
-浮动元素的特性：
-1. 允许文本和内联元素环绕它。
-2. 不会影响其他块元素的布局。
-3. 脱离正常的文档流。
-4. 可能造成父元素的高度塌陷。
+box1左浮动，向左平移直到遇到父容器的边界。
+box2右浮动，向右平移直到遇到父容器的边界。
+由于父容器没有设置height，父容器的height默认是子容器的高度和，但此时子容器都设置了浮动，导致父容器的height塌陷，缩成一条线。
+`height塌陷问题可以通过clear属性修复。`
 
 #### position
-``` js
-static: 该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
-relative: 相对于元素在正常布局行为下的定位。
-absolute: 元素会被移出正常文档流，并不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。
+
+
+* static 该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。    
+* relative 相对于元素在正常布局行为下的定位。   
+* absolute 元素会被移出正常文档流，并不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。   
+* fixed 元素会被移出正常文档流，并不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。
+
+
+``` html
+<div webview-jus8sda class="container">
+<div webview-jus8sda class="box-absolute">box-absolute</div>
+<div webview-jus8sda class="box-relative">box-relative</div>
+</div>
+<style>
+.container[webview-jus8sda]{
+  position: relative;
+  height: 150px;
+}
+
+.container[webview-jus8sda] > div{
+  width: 100px;
+  height: 100px;
+}
+.box-absolute[webview-jus8sda]{
+  position: absolute;
+  top:0;
+  right:0;
+  border:1px solid blue;
+}
+.box-relative[webview-jus8sda]{
+  position: relative;
+  top: 20px;
+  left: 20px;
+  border:1px solid red;
+}
+.box-relative[webview-jus8sda]:after{
+  content:'';
+  display: block;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: -20px;
+  left: -20px;
+  border:1px dotted red;
+}
+</style>
+```
+
+``` webview
+<div webview-jus8sda class="container">
+<div webview-jus8sda class="box-absolute">box-absolute</div>
+<div webview-jus8sda class="box-relative">box-relative</div>
+</div>
+<style>
+.container[webview-jus8sda]{
+  position: relative;
+  height: 150px;
+}
+
+.container[webview-jus8sda] > div{
+  width: 100px;
+  height: 100px;
+}
+.box-absolute[webview-jus8sda]{
+  position: absolute;
+  top:0;
+  right:0;
+  border:1px solid blue;
+}
+.box-relative[webview-jus8sda]{
+  position: relative;
+  top: 20px;
+  left: 20px;
+  border:1px solid red;
+}
+.box-relative[webview-jus8sda]:after{
+  content:'';
+  display: block;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: -20px;
+  left: -20px;
+  border:1px dotted red;
+}
+</style>
+```
+
+### 变形
+> CSS`transform`属性允许你旋转，缩放，倾斜或平移指定元素。这是通过修改CSS视觉格式化模型的坐标空间来实现的。
+
+变形是依托一个坐标系统来进行元素的旋转，缩放等操作。
+![avatar](http://localhost:8080/sandor/transform-coordinate.png)    
+transform所用的这个坐标系，相比初始坐标系，x、y、z轴的指向都不变，只是原点位置移动到了元素的正中心。如果想要改变这个坐标系的原点位置，使用transform-origin，transform-origin的默认值是50% 50%，因此，默认情况下，transform坐标系的原点位于元素中心。    
+
+需要注意的时，每个变形函数都会改变坐标系，如果写了多个变形函数，每个变形函数的坐标系都是依托于上一个坐边系。
+``` css
+/* Keyword values */
+transform: none;
+
+/* Function values */
+transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+transform: translate(12px, 50%);
+transform: translateX(2em);
+transform: translateY(3in);
+transform: scale(2, 0.5);
+transform: scaleX(2);
+transform: scaleY(0.5);
+transform: rotate(0.5turn);
+transform: skew(30deg, 20deg);
+transform: skewX(30deg);
+transform: skewY(1.07rad);
+transform: matrix3d(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0);
+transform: translate3d(12px, 50%, 3em);
+transform: translateZ(2px);
+transform: scale3d(2.5, 1.2, 0.3);
+transform: scaleZ(0.3);
+transform: rotate3d(1, 2.0, 3.0, 10deg);
+transform: rotateX(10deg);
+transform: rotateY(10deg);
+transform: rotateZ(10deg);
+transform: perspective(17px);
+
+/* Multiple function values */
+transform: translateX(10px) rotate(10deg) translateY(5px);
+
+/* Global values */
+transform: inherit;
+transform: initial;
+transform: unset;
+```
+
+
+``` webview
+<div webview-jsd9f2k class="container">
+<div webview-jsd9f2k class="item">
+<div webview-jsd9f2k class="content">
+<div webview-jsd9f2k class="box">
+<div webview-jsd9f2k class="box"></div>
+</div>
+</div>
+<div webview-jsd9f2k class="text">
+无任何变形
+</div>
+</div>
+
+<div webview-jsd9f2k class="item">
+<div webview-jsd9f2k class="content">
+<div style="transform:translateX(20px)"></div>
+</div>
+<div webview-jsd9f2k class="text">
+translateX(20px)
+</div>
+</div>
+
+<div webview-jsd9f2k class="item">
+<div webview-jsd9f2k class="content">
+<div style="transform:translateY(20px)"></div>
+</div>
+<div webview-jsd9f2k class="text">
+translateY(20px)
+</div>
+</div>
+
+<div webview-jsd9f2k class="item">
+<div webview-jsd9f2k class="content">
+<div style="transform:scale(1.2,1.2)"></div>
+</div>
+<div webview-jsd9f2k class="text">
+scale(1.2,1.2)
+</div>
+</div>
+
+<div webview-jsd9f2k class="item">
+<div webview-jsd9f2k class="content">
+<div style="transform:scale(0.8,0.8)"></div>
+</div>
+<div webview-jsd9f2k class="text">
+scale(0.8,0.8)
+</div>
+</div>
+
+<div webview-jsd9f2k class="item">
+<div webview-jsd9f2k class="content">
+<div style="transform:rotate(30deg)"></div>
+</div>
+<div webview-jsd9f2k class="text">
+rotate(30deg)
+</div>
+</div>
+
+<div webview-jsd9f2k class="item">
+<div webview-jsd9f2k class="content">
+<div style="transform:skewX(20deg)"></div>
+</div>
+<div webview-jsd9f2k class="text">
+skewX(20deg)
+</div>
+</div>
+
+<div webview-jsd9f2k class="item">
+<div webview-jsd9f2k class="content">
+<div style="transform:skewY(20deg)"></div>
+</div>
+<div webview-jsd9f2k class="text">
+skewY(20deg)
+</div>
+</div>
+
+</div>
+
+<style>
+.container[webview-jsd9f2k]{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item[webview-jsd9f2k]{
+  width:150px;
+  height:150px;
+  border:1px solid blue;
+  box-sizing:border-box;
+  margin:10px;
+}
+
+.content[webview-jsd9f2k]{
+  width:100%;
+  height:120px;
+  padding:1px;
+  box-sizing:border-box;
+}
+
+.content[webview-jsd9f2k] > div{
+  height:80px;
+  width:80px;
+  background-color: #34495e;
+  margin: 20px auto 0;
+}
+
+.text[webview-jsd9f2k]{
+  width:100%;
+  height:30px;
+  line-height:30px;
+  text-align:center;
+  box-sizing:border-box;
+}
+</style>
 ```
 
 
