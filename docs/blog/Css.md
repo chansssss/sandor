@@ -401,5 +401,187 @@ skewY(20deg)
 </style>
 ```
 
+### 过渡
 
+过渡是一个元素在不同状态之间切换的时候定义不同的过渡效果。   
+transition CSS 属性是 transition-property，transition-duration，transition-timing-function 和 transition-delay 的一个简写属性。
 
+##### 语法
+* transition-property 指定应用过渡属性的名称。
+* transition-duration 属性以秒或毫秒为单位指定过渡动画所需的时间。默认值为 0s ，表示不出现过渡动画。
+* transition-timing-function  属性用来描述这个中间值是怎样计算的。实质上，通过这个函数会建立一条加速度曲线，因此在整个transition变化过程中，变化速度可以不断改变。
+* transition-delay 规定了在过渡效果开始作用之前需要等待的时间。
+
+> Tips:   
+> transition-property可以为all，表示所有css属性都会被应用过渡。   
+> transition-timing-function 可以为内置的一些过渡函数，同时也可使用贝塞尔曲线。 
+
+``` css
+/* Apply to 1 property */
+/* property name | duration */
+transition: margin-right 4s;
+
+/* property name | duration | delay */
+transition: margin-right 4s 1s;
+
+/* property name | duration | timing function */
+transition: margin-right 4s ease-in-out;
+
+/* property name | duration | timing function | delay */
+transition: margin-right 4s ease-in-out 1s;
+
+/* Apply to 2 properties */
+transition: margin-right 4s, color 1s;
+
+/* Apply to all changed properties */
+transition: all 0.5s ease-out;
+
+/* Global values */
+transition: inherit;
+transition: initial;
+transition: unset;
+```
+
+##### 示例
+
+``` html
+<div webview-ashd82h class="box">
+hover me
+</div>
+
+<style>
+.box[webview-ashd82h]{
+  text-align:center;
+  line-height:60px;
+  width:100px;
+  border-radius: 8px;
+  height:60px;
+  background-color: #fab1a0;
+  transition: width 1.8s ease-in-out .1s;
+}
+.box[webview-ashd82h]:hover{
+  width:100%;
+}
+</style>
+```
+
+``` webview
+<div webview-ashd82h class="box">
+hover me
+</div>
+
+<style>
+.box[webview-ashd82h]{
+  text-align:center;
+  line-height:60px;
+  width:100px;
+  border-radius: 8px;
+  height:60px;
+  background-color: #fab1a0;
+  transition: width .8s ease-in-out .1s;
+}
+.box[webview-ashd82h]:hover{
+  width:150px;
+}
+</style>
+```
+
+### 动画
+CSS animation 属性是 animation-name，animation-duration, animation-timing-function，animation-delay，animation-iteration-count，animation-direction，animation-fill-mode 和 animation-play-state 属性的一个简写属性形式。
+
+##### 语法
+
+* animation-name 属性指定应用的一系列动画，每个名称代表一个由@keyframes定义的动画序列。
+* animation-duration 属性指定一个动画周期的时长。
+* animation-timing-function 属性定义CSS动画在每一动画周期中执行的节奏。
+* animation-delay CSS属性定义动画于何时开始，即从动画应用在元素上到动画开始的这段时间的长度。
+* animation-iteration-count  定义动画在结束前运行的次数 可以是1次 无限循环.
+* animation-direction 属性指示动画是否反向播放，它通常在简写属性animation中设定
+* animation-fill-mode 设置CSS动画在执行之前和之后如何将样式应用于其目标。
+* animation-play-state 定义一个动画是否运行或者暂停。可以通过查询它来确定动画是否正在运行。另外，它的值可以被设置为暂停和恢复的动画的重放。
+
+##### 示例
+
+``` html
+<div style="position:relative;height:100px">
+<div webview-usidj2i class="box">
+</div>
+</div>
+
+<style>
+.box[webview-usidj2i]{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width:100px;
+  border-radius: 8px;
+  height:60px;
+  background-color: #fab1a0;
+  animation-name: move;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+@keyframes move{
+  0%{
+    top: 0;
+    left: 0;
+  }
+  50%{
+    top: 50px;
+    left: 200px;
+  }
+  100%{
+    top: 0;
+    left: 0;
+  }
+}
+</style>
+```
+
+``` webview
+<div style="position:relative;height:100px">
+<div webview-usidj2i class="box">
+</div>
+</div>
+
+<style>
+.box[webview-usidj2i]{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width:100px;
+  border-radius: 8px;
+  height:60px;
+  background-color: #fab1a0;
+  animation-name: move;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+@keyframes move{
+  0%{
+    top: 0;
+    left: 0;
+  }
+  50%{
+    top: 50px;
+    left: 200px;
+  }
+  100%{
+    top: 0;
+    left: 0;
+  }
+}
+</style>
+```
+
+### 常见布局
