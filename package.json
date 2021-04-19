@@ -18,7 +18,7 @@
     "@wesi/markdown-it-webview": "^1.0.0",
     "htmlparser2": "^6.1.0",
     "vue-router": "3.4.5",
-    "vuepress": "1.4.0",
+    "vuepress": "1.8.2",
     "vuepress-plugin-mermaidjs": "^1.8.1"
   },
   "devDependencies": {}

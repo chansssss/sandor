@@ -23,7 +23,7 @@ git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:wesi0912/blog.git master:gh-pages
-git push -f https://@github.com/wesi0912/sandor.git master:gh-pages
+git push -f https://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@github.com/wesi0912/sandor.git master:gh-pages
 
 
 cd -

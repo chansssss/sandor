@@ -65,6 +65,9 @@ IE盒子模型：
 
 通过`box-sizing`就是设置元素盒子模型，content-box为标准盒子模型，border-box为IE盒子模型。
 
+### 文本
+> TODO
+
 ### 布局
 > 更多布局知识，可以参考[learnlayout](https://zh.learnlayout.com/)   
 
@@ -406,7 +409,6 @@ skewY(20deg)
 过渡是一个元素在不同状态之间切换的时候定义不同的过渡效果。   
 transition CSS 属性是 transition-property，transition-duration，transition-timing-function 和 transition-delay 的一个简写属性。
 
-##### 语法
 * transition-property 指定应用过渡属性的名称。
 * transition-duration 属性以秒或毫秒为单位指定过渡动画所需的时间。默认值为 0s ，表示不出现过渡动画。
 * transition-timing-function  属性用来描述这个中间值是怎样计算的。实质上，通过这个函数会建立一条加速度曲线，因此在整个transition变化过程中，变化速度可以不断改变。
@@ -441,8 +443,6 @@ transition: inherit;
 transition: initial;
 transition: unset;
 ```
-
-##### 示例
 
 ``` html
 <div webview-ashd82h class="box">
@@ -487,9 +487,10 @@ hover me
 ```
 
 ### 动画
-CSS animation 属性是 animation-name，animation-duration, animation-timing-function，animation-delay，animation-iteration-count，animation-direction，animation-fill-mode 和 animation-play-state 属性的一个简写属性形式。
+在学习css animation之前，有必要先了解下关键帧动画。
+> TODO
 
-##### 语法
+CSS animation 属性是 animation-name，animation-duration, animation-timing-function，animation-delay，animation-iteration-count，animation-direction，animation-fill-mode 和 animation-play-state 属性的一个简写属性形式。
 
 * animation-name 属性指定应用的一系列动画，每个名称代表一个由@keyframes定义的动画序列。
 * animation-duration 属性指定一个动画周期的时长。
@@ -500,7 +501,6 @@ CSS animation 属性是 animation-name，animation-duration, animation-timing-fu
 * animation-fill-mode 设置CSS动画在执行之前和之后如何将样式应用于其目标。
 * animation-play-state 定义一个动画是否运行或者暂停。可以通过查询它来确定动画是否正在运行。另外，它的值可以被设置为暂停和恢复的动画的重放。
 
-##### 示例
 
 ``` html
 <div style="position:relative;height:100px">
@@ -584,4 +584,67 @@ CSS animation 属性是 animation-name，animation-duration, animation-timing-fu
 </style>
 ```
 
-### 常见布局
+### Flex
+> 关于flex的知识，推荐去看阮一峰老师的[flex介绍](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+
+#### 容器属性
+``` css
+.flex-box {
+    display: flex;
+    flex-direction: row;
+    /* 主轴的方向，默认row，从左往右 */
+    flex-wrap: nowrap;
+    /* 是否换行，默认不换行*/
+    justify-content: center;
+    /* 主轴上的布局，默认flex-start */
+    align-items: center;
+    /* 交叉轴上的布局，默认值flex-start */
+    align-content: center;
+    /* 多条轴线的布局 */
+}
+```
+
+#### 项目属性
+
+``` css
+.flex-item {
+    order: 2;
+    /* 项目的order， 越大的越后面*/
+    flex-grow: 1;
+    /* 扩张比例，默认0，不占剩余空间 */
+    flex-shrink: 0;
+    /* 缩小比例，默认1，自动缩小*/
+    flex-basis: 200px;
+    /* 主轴上的宽度 */
+    flex: 1 0 200px;
+    /* 上面三条的缩写 */
+    align-self: flex-end;
+    /* 修改项目的交叉轴布局*/
+}
+```
+
+
+### Grid
+> 关于Grid的知识，推荐去看阮一峰老师的[Grid介绍](http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)
+
+
+### BFC
+块级格式化上下文(block formatting contexts)是CSS可视化渲染的一部分。它是一块区域，规定了内部块盒子的渲染方式，以及浮动元素相互之间的影响关系。
+
+#### 哪些情况会触发BFC
+常见的几种情况
+* 根元素（html）
+* 浮动元素（元素的 float 不是 none）
+* 绝对定位元素（元素的 position 为 absolute 或 fixed）
+* 行内块元素（元素的 display 为 inline-block）
+* overflow 不为 visible 的块元素
+* 弹性元素（display 为 flex）
+* 网格元素（display 为 grid）
+
+#### BFC的特性
+* BFC是就像一道屏障，隔离出了BFC内部和外部，内部和外部区域的渲染相互之间不影响。BFC有自己的一套内部子元素渲染的规则，不影响外部渲染，也不受外部渲染影响。
+* BFC的区域不会和外部浮动盒子的外边距区域发生叠加。也就是说，外部任何浮动元素区域和BFC区域是泾渭分明的，不可能重叠。
+* BFC在计算高度的时候，内部浮动元素的高度也要计算在内。也就是说，即使BFC区域内只有一个浮动元素，BFC的高度也不会发生塌缩，高度是大于等于浮动元素的高度的。（这个特性可以用来解决浮动元素高度塌陷的问题）
+* HTML结构中，当构建BFC区域的元素紧接着一个浮动盒子时，即是该浮动盒子的兄弟节点，BFC区域会首先尝试在浮动盒子的旁边渲染，但若宽度不够，就在浮动元素的下方渲染。
+
+### 回流和重绘

@@ -26,11 +26,11 @@ module.exports = {
             {
                 text: '博客',
                 link: '/blog/'
-            },
-            {
-                text: '项目',
-                link: '/project/'
-            },
+            }
+            // {
+            //     text: '项目',
+            //     link: '/project/'
+            // },
         ],
         sidebar: {
             '/blog/': [

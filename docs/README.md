@@ -5,7 +5,7 @@ title: Sandor
 heroText: Sandor
 tagline: 不止于此
 actionText: 博客 →
-actionLink: /sandor/index.html
+actionLink: /blog/index.html
 features:
 - title: About Me
   details: Developer 
