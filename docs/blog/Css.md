@@ -648,3 +648,4 @@ CSS animation 属性是 animation-name，animation-duration, animation-timing-fu
 * HTML结构中，当构建BFC区域的元素紧接着一个浮动盒子时，即是该浮动盒子的兄弟节点，BFC区域会首先尝试在浮动盒子的旁边渲染，但若宽度不够，就在浮动元素的下方渲染。
 
 ### 回流和重绘
+

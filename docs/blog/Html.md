@@ -7,6 +7,37 @@ sidebarDepth: 4
 ### 什么是Html
 > HTML (HyperText Markup Language) 不是一门编程语言，而是一种用来告知浏览器如何组织页面的标记语言。HTML 可复杂、可简单，一切取决于开发者。它由一系列的元素（elements）组成，这些元素可以用来包围不同部分的内容，使其以某种方式呈现或者工作。 一对标签（ tags）可以为一段文字或者一张图片添加超链接，将文字设置为斜体，改变字号，等等。
 
+``` html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title></title>
+  <link rel="icon" href="./favicon.ico"></head>
+  <body>
+    <div id="app"></div>
+  <script type="text/javascript" src="./assets/js/app.js"></script></body>
+</html>
+```
+上面是一段简单的html示例，一个完整的html文档里面应该包含以下几个部分：
+* `<!DOCTYPE html>` 所有HTML文档都必须以<!DOCTYPE>声明开头。该声明不是HTML标记。它是浏览器的“信息”，说明期望的文档类型。
+* `<html>` 表示HTML文档的根，所有其他HTML元素的容器。
+* `<head>` 是元数据的容器，并且被放置在`<HTML>`标记和`<body>`标记之间。
+* `<html>` 表示HTML文档的根，所有其他HTML元素的容器。
+* `<meta>` 定义关于HTML文档的元数据。通常用于指定字符集，页面描述，关键字和文档作者设置。
+* `<title>` 表示HTML文档的根，所有其他HTML元素的容器。
+* `<link>` 外部资源，常用于链接外部css资源。
+* `<script>` 外部资源，常用于链接外部js资源。
+* `<body>` 包含一个HTML文件中的所有内容，诸如标题，段落，图像，超链接，表格，列表等
+* 其他元素，比如 div、p、span
+
+
+### Html和Css、Javascript的联系
+* CSS ，以及如何用它装饰 HTML (例如：更改你的文本字号和字体，添加边框和阴影，将你的页面设计成多栏布局，添加动画和其他视觉效果。)
+* JavaScript ，用它为网页添加动态功能(例如：找到你的地址并且在地图上绘制出来，触发按钮时让 UI 元素显示或消失，将用户的数据本地储存在他们的电脑里，以及更多。)
+
+
 ### Element
 
 ``` html
@@ -48,3 +79,9 @@ sidebarDepth: 4
 * ul 列表，表示一个内可含多个元素的无序列表或项目符号列表。（常于li元素搭配使用）
 * li 列表条目，它必须包含在一个父元素里：一个有序列表(ol)，一个无序列表(ul)，或者一个菜单 (menu)。
 * table 表格，元素表示表格数据 — 即通过二维数据表表示的信息。
+
+### Html的渲染
+上一节我们简单的介绍了从输入一个url到用户看到页面发生了哪些事情，我们知道了从服务器请求到的html会交给浏览器的渲染进程，下面我们来了解下html是如何被渲染的。
+
+#### 一，
+
