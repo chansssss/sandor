@@ -510,9 +510,6 @@ CSS animation 属性是 animation-name，animation-duration, animation-timing-fu
 
 <style>
 .box[webview-usidj2i]{
-  position:absolute;
-  top: 0;
-  left: 0;
   width:100px;
   border-radius: 8px;
   height:60px;
@@ -528,16 +525,13 @@ CSS animation 属性是 animation-name，animation-duration, animation-timing-fu
 }
 @keyframes move{
   0%{
-    top: 0;
-    left: 0;
+    transform: translateX(20px);
   }
   50%{
-    top: 50px;
-    left: 200px;
+    transform: translateX(60px);
   }
   100%{
-    top: 0;
-    left: 0;
+    transform: translateX(20px);
   }
 }
 </style>
@@ -551,12 +545,10 @@ CSS animation 属性是 animation-name，animation-duration, animation-timing-fu
 
 <style>
 .box[webview-usidj2i]{
-  position:absolute;
-  top: 0;
-  left: 0;
   width:100px;
   border-radius: 8px;
   height:60px;
+  transform: translateZ(0);
   background-color: #fab1a0;
   animation-name: move;
   animation-duration: 3s;
@@ -569,16 +561,14 @@ CSS animation 属性是 animation-name，animation-duration, animation-timing-fu
 }
 @keyframes move{
   0%{
-    top: 0;
-    left: 0;
+    transform: translateX(20px);
   }
   50%{
-    top: 50px;
-    left: 200px;
+    transform: translateX(60px);
+    width:200px;
   }
   100%{
-    top: 0;
-    left: 0;
+    transform: translateX(20px);
   }
 }
 </style>
@@ -647,5 +637,5 @@ CSS animation 属性是 animation-name，animation-duration, animation-timing-fu
 * BFC在计算高度的时候，内部浮动元素的高度也要计算在内。也就是说，即使BFC区域内只有一个浮动元素，BFC的高度也不会发生塌缩，高度是大于等于浮动元素的高度的。（这个特性可以用来解决浮动元素高度塌陷的问题）
 * HTML结构中，当构建BFC区域的元素紧接着一个浮动盒子时，即是该浮动盒子的兄弟节点，BFC区域会首先尝试在浮动盒子的旁边渲染，但若宽度不够，就在浮动元素的下方渲染。
 
-### 回流和重绘
+
 

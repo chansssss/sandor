@@ -1,4 +1,6 @@
 node_modules
 dist
 yarn.lock
-deploy.sh
+*.sh
+.DS_Store
+*/.DS_Store
