@@ -35,8 +35,10 @@ module.exports = {
         sidebar: {
             '/blog/': [
                 ['', '序'],
+                '浏览器相关',
                 'Html',
                 'Css',
+                'JavaScript',
                 'Http',
             ],
         },
