@@ -27,8 +27,8 @@ console.log(person1.name) // Tom
 console.log(person2.name) // Tom
 ```
 
-#### __proto__
-每一个JavaScript对象实例(除了 null )都具有的一个属性，叫__proto__，这个属性会指向该对象的原型。
+#### \__proto__
+每一个JavaScript对象实例(除了 null )都具有的一个属性，叫`__proto__`，这个属性会指向该对象的原型。
 ``` javascript
 function Person() {
 
@@ -90,9 +90,92 @@ checkscope()(); // local scope
 由于js采用的词法作用域，函数的作用域在函数定义的时候就决定了，上面两个方法的都会输出`local scope`。
 
 ### 执行过程
-以下面的代码简单的说一下js的执行过程
-``` javascript
-var 
+> javascript代码执行不是按照顺序一行一行的执行，而是按照一段一段执行的。
 
+``` javascript
+console.log(foo)
+console.log(boo)
+var boo = 'boo'
+function foo(){
+    console.log('foo')
+}
+foo()
 ```
+
+``` javascript
+// output
+[Function: foo]
+undefined
+foo
+```
+
+如果上面的代码按照顺序执行的话，在第一行就会由于引用了未申明的变量报错，实际上在执行js代码时会有一个变量（方法）提升阶段：    
+1. 首先会将整个代码中声明的变量或方法进行提升，变量提升为undefine,方法则直接初始化。
+2. 经过提升后再从上往下执行代码，运行到代码尾部完成整个执行过程。
+
+##### 重复的声明
+
+1. 变量和方法同名
+
+``` javascript
+console.log(foo)
+function foo(){
+    console.log('foo2')
+}
+var foo = "foo"
+
+// output
+[Function: foo]
+```
+若变量名和方法重名，变量名的提升会被忽略。
+
+2. 重复的方法声明
+``` javascript
+
+foo()
+function foo(){
+    console.log('foo')
+}
+
+function foo(){
+    console.log('foo2')
+}
+
+// output
+foo2
+```
+
+若有多个同名的方法，后面声明的会覆盖前面的。
+
+### 执行上下文栈
+js在执行的时候会维护一个名为栈的数据结构，每当执行一个函数时，就会为函数创建一个上下文，并将其压入栈中，等到函数执行完毕，再将函数推出栈。
+
+``` javascript
+function foo1(){
+    foo2()
+    console.log('foo1')
+}
+
+function foo2(){
+    console.log('foo2')
+}
+
+foo1()
+```
+
+上面代码的执行过程中执行上下文栈的变化如下：
+1. 当执行以上代码块的时候，会创建一个GlobalContent并入栈。 stack = [GlobalContent]
+2. 执行foo1()，会创建一个Foo1Content并入栈。 stack = [GlobalContent,Foo1Content]
+3. 执行foo2()，会创建一个Foo2Content并入栈。 stack = [GlobalContent,Foo1Content,Foo2Content]
+4. foo2()执行完毕，Foo2Content出栈。 stack = [GlobalContent,Foo1Content]
+5. foo1()执行完毕，Foo1Content出栈。 stack = [GlobalContent]
+6. 代码块执行完毕，GlobalContent出栈。 stack = []
+
+### 执行上下文
+执行上下文中包含以下三个属性：
+1. 
+
+
+
+
 
