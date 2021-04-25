@@ -1,7 +1,4 @@
-console.log(foo)
-console.log(boo)
-var boo = 'boo'
 function foo(){
-    console.log('foo')
+    console.log(arguments)
 }
-foo()
+foo(1)
