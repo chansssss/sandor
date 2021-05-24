@@ -26,11 +26,11 @@ module.exports = {
             {
                 text: '博客',
                 link: '/blog/'
-            }
-            // {
-            //     text: '项目',
-            //     link: '/project/'
-            // },
+            },
+            {
+                text: '面试',
+                link: '/interview/'
+            },
         ],
         sidebar: {
             '/blog/': [
@@ -39,7 +39,11 @@ module.exports = {
                 'Html',
                 'Css',
                 'JavaScript',
-                'Http',
+                '面试',
+            ],
+            '/interview/': [
+                ['', '序'],
+                '网络相关',
             ],
         },
         lastUpdated: '上次更新时间',
