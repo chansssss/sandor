@@ -39,7 +39,6 @@ module.exports = {
                 'Html',
                 'Css',
                 'JavaScript',
-                '面试',
             ],
             '/interview/': [
                 ['', '序'],
