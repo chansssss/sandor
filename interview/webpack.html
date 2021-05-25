@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack | 全干指南</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/sandor/favicon.ico">
+    <meta name="description" content="Full To Dev">
+    
+    <link rel="preload" href="/sandor/assets/css/0.styles.f9fbbcb4.css" as="style"><link rel="preload" href="/sandor/assets/js/app.3f28bee3.js" as="script"><link rel="preload" href="/sandor/assets/js/2.50b1ccd9.js" as="script"><link rel="preload" href="/sandor/assets/js/18.865e7b47.js" as="script"><link rel="prefetch" href="/sandor/assets/js/10.542e262f.js"><link rel="prefetch" href="/sandor/assets/js/11.45bd32f5.js"><link rel="prefetch" href="/sandor/assets/js/12.e22425b9.js"><link rel="prefetch" href="/sandor/assets/js/13.6cfd3819.js"><link rel="prefetch" href="/sandor/assets/js/14.f49d2cae.js"><link rel="prefetch" href="/sandor/assets/js/15.0a820a79.js"><link rel="prefetch" href="/sandor/assets/js/16.1c65fb0d.js"><link rel="prefetch" href="/sandor/assets/js/17.23a6e15c.js"><link rel="prefetch" href="/sandor/assets/js/19.5b21031d.js"><link rel="prefetch" href="/sandor/assets/js/20.f9d4c345.js"><link rel="prefetch" href="/sandor/assets/js/3.6ab695e5.js"><link rel="prefetch" href="/sandor/assets/js/4.e1567d1a.js"><link rel="prefetch" href="/sandor/assets/js/5.8d2b42d3.js"><link rel="prefetch" href="/sandor/assets/js/6.7db9dd77.js"><link rel="prefetch" href="/sandor/assets/js/7.d46bed91.js"><link rel="prefetch" href="/sandor/assets/js/8.ad7065e4.js"><link rel="prefetch" href="/sandor/assets/js/9.d22687c1.js">
+    <link rel="stylesheet" href="/sandor/assets/css/0.styles.f9fbbcb4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/sandor/" class="home-link router-link-active"><!----> <span class="site-name">全干指南</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/sandor/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/sandor/blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/sandor/interview/" class="nav-link router-link-active">
+  面试
+</a></div> <a href="https://github.com/wesi0912/sandor" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/sandor/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/sandor/blog/" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="/sandor/interview/" class="nav-link router-link-active">
+  面试
+</a></div> <a href="https://github.com/wesi0912/sandor" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/sandor/interview/" aria-current="page" class="sidebar-link">序</a></li><li><a href="/sandor/interview/网络相关.html" class="sidebar-link">网络相关</a></li><li><a href="/sandor/interview/Html和Css.html" class="sidebar-link">Html和Css</a></li><li><a href="/sandor/interview/JS.html" class="sidebar-link">JS</a></li><li><a href="/sandor/interview/Vue.html" class="sidebar-link">Vue</a></li><li><a href="/sandor/interview/webpack.html" aria-current="page" class="active sidebar-link">webpack</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/sandor/interview/webpack.html#webpack" class="sidebar-link">webpack</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="webpack"><a href="#webpack" class="header-anchor">#</a> webpack</h2> <h3 id="你做过哪些webpack优化"><a href="#你做过哪些webpack优化" class="header-anchor">#</a> 你做过哪些Webpack优化</h3> <h4 id="优化-webpack-的构建速度"><a href="#优化-webpack-的构建速度" class="header-anchor">#</a> 优化 Webpack 的构建速度</h4> <ul><li>使用高版本的 Webpack （使用webpack4）</li> <li>多线程/多实例构建：HappyPack(不维护了)、thread-loader</li> <li>缩小打包作用域：
+<ol><li>exclude/include (确定 loader 规则范围)</li> <li>resolve.modules 指明第三方模块的绝对路径 (减少不必要的查找)</li> <li>resolve.extensions 尽可能减少后缀尝试的可能性</li> <li>noParse 对完全不需要解析的库进行忽略 (不去解析但仍会打包到 bundle 中，注意被忽略掉的文件里不应该包含 import、require、define 等模块化语句)</li> <li>IgnorePlugin (完全排除模块)</li> <li>合理使用alias</li></ol></li> <li>充分利用缓存提升二次构建速度：
+<ol><li>babel-loader 开启缓存</li> <li>terser-webpack-plugin 开启缓存</li> <li>使用 cache-loader 或者 hard-source-webpack-plugin
+注意：thread-loader 和 cache-loader 兩個要一起使用的話，請先放 cache-loader 接著是 thread-loader 最後才是 heavy-loader</li></ol></li> <li>DLL：
+<ol><li>使用 DllPlugin 进行分包，使用 DllReferencePlugin(索引链接) 对 manifest.json 引用，让一些基本不会改动的代码先打包成静态资源，避免反复编译浪费时间。</li></ol></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新时间:</span> <span class="time">5/25/2021, 5:44:39 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/sandor/interview/Vue.html" class="prev">
+        Vue
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/sandor/assets/js/app.3f28bee3.js" defer></script><script src="/sandor/assets/js/2.50b1ccd9.js" defer></script><script src="/sandor/assets/js/18.865e7b47.js" defer></script>
+  </body>
+</html>
