@@ -44,7 +44,7 @@ module.exports = {
                 ['', '序'],
                 '网络相关',
                 'Html和Css',
-                'JavaScript',
+                'JS',
                 'Vue',
                 'webpack',
             ],
